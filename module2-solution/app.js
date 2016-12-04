@@ -30,7 +30,9 @@ function ShoppingListCheckOffService() {
   var itemsToBuy = [
     { name: "cookies", quantity: 10 },
     { name: "bottles of milk", quantity: 2 },
-    { name: "cakes", quantity: 3 }
+    { name: "cakes", quantity: 3 },
+    { name: "bags of chips", quantity: 12 },
+    { name: "sugary drinks", quantity: 3 }
   ];
   // List of items we've already bought
   var itemsAlreadyBought = [];
