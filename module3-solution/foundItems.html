@@ -1,12 +1,10 @@
-<div class="row found-items-list">
-  <span ng-if="narrow.foundItems.length === 0">
-    Nothing found!
-  </span>
-  <ul>
-    <li ng-repeat="item in narrow.foundItems">
-      {{ item.name }}, {{ item.short_name }}, {{ item.description }}
-      <button ng-click="narrow.onRemove({index: $index});" class="btn btn-default btn-xs">
-        Don't want this one!</button>
-    </li>
-  </ul>
+<div class="error form-group" ng-if="narrow.foundItems.length === 0">
+  Nothing found!
 </div>
+<ul>
+  <li ng-repeat="item in narrow.foundItems">
+    {{ item.name }}, {{ item.short_name }}, {{ item.description }}
+    <button ng-click="narrow.onRemove({index: $index});" class="btn btn-default btn-xs">
+      Don't want this one!</button>
+  </li>
+</ul>

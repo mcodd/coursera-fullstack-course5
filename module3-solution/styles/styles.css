@@ -6,8 +6,8 @@ input[type="text"] {
   float: left;
 }
 .found-items-list {
+  clear: both;
   float: left;
-  width: 100%;
 }
 .narrow-button {
   float: left;
