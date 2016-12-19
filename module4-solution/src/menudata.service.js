@@ -2,17 +2,22 @@
 'use strict';
 
 angular.module('Data')
-.service('MenuDataService', MenuDataService);
+.service('MenuDataService', MenuDataService)
+.constant('ApiBasePath', "http://davids-restaurant.herokuapp.com");
 
-MenuDataService.$inject = [ '$q' ]
-function MenuDataService($q) {
+MenuDataService.$inject = [ '$http', 'ApiBasePath' ]
+function MenuDataService($http, ApiBasePath) {
   var service = this;
 
   // getAllCategories should return a promise which is the result of using
   // the $http service: https://davids-restaurant.herokuapp.com/categories.json
   service.getAllCategories = function () {
-    var deferred = $q.defer();
-    // TODO
+    var response = $http({
+      method: "GET",
+      url: (ApiBasePath + "/categories.json")
+    });
+
+    return response;
   };
 
   // getItemsForCategory(categoryShortName) - this method should return a
@@ -22,8 +27,15 @@ function MenuDataService($q) {
   // categoryShortName value was passed in as an argument into the
   // getItemsForCategory method.
   service.getItemsForCategory = function (categoryShortName) {
-    var deferred = $q.defer();
-    // TODO
+    var response = $http({
+      method: "GET",
+      url: (ApiBasePath + "/menu_items.json"),
+      params: {
+        category: categoryShortName
+      }
+    });
+
+    return response;
   };
 }
 
