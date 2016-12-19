@@ -8,7 +8,7 @@
   </head>
   <body ng-app='MenuApp'>
 
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-static-top">
       <div class="container">
         <div class="navbar-header navbar-brand">
           Restaurant
@@ -22,17 +22,29 @@
       </div>
     </nav>
 
-    <ui-view></ui-view>
+    <div class="container">
+      <div class="jumbotron">
+        <ui-view></ui-view>
+      </div>
+    </div>
 
     <!-- Libraries -->
-    <script src="lib/angular.min.js"></script>
-    <script src="lib/angular-ui-router.min.js"></script>
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-ui-router.js"></script>
 
     <!-- Modules -->
     <script src="src/menuapp.module.js"></script>
     <script src="src/data.module.js"></script>
+
+    <!-- Routes -->
+    <script src="src/routes.js"></script>
+
+    <!-- Services -->
     <script src="src/menudata.service.js"></script>
 
+    <!-- module artifacts -->
+    <script src="src/categories.component.js"></script>
+    <script src="src/items.component.js"></script>
 
   </body>
 </html>

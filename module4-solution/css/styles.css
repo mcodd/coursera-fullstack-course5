@@ -1,1 +1,5 @@
-/* some custom styles */
+/* drop the jumbotron down below the fixed header - no longer
+  need this when we've got the navbar-static-top class */
+/*body {
+  padding-top: 70px;
+}*/
