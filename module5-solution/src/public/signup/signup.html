@@ -48,12 +48,16 @@
           ng-if="regForm.favorite.$error.required && regForm.favorite.$touched">
           Favorite is required
         </span>
+        <span
+          ng-if="SignupCtrl.completed && !SignupCtrl.validFavorite">
+          No such menu number exists
+        </span>
         <br>
 
       <button
         class="btn btn-primary"
         ng-disabled="regForm.$invalid"
-        ng-click="SignupCtrl.submit()">Submit</button>
+        ng-click="SignupCtrl.submit(SignupCtrl.user.favorite)">Submit</button>
 
     </form>
   </fieldset>

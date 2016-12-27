@@ -3,12 +3,21 @@
 angular.module('public')
 .controller('SignupController', SignupController);
 
-function SignupController() {
-  var reg = this;
+SignupController.$inject = ['MenuService'];
+function SignupController(MenuService) {
+  var signup = this;
 
-  reg.submit = function () {
+  signup.submit = function (favorite) {
     // TODO - figure out how to validate the menu number here?
-    reg.completed = true;
+    signup.completed = true;
+    response = MenuService.checkMenuItem(favorite);
+    response.then(function(result) {
+      signup.validFavorite = true;
+      console.log("set valid to true ", signup.validFavorite);
+    }, function(result) {
+      signup.validFavorite = false;
+      console.log("set valid to  false ", signup.validFavorite);
+    });
   };
 }
 

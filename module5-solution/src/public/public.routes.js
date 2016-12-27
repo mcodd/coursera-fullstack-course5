@@ -46,11 +46,6 @@ function routeConfig ($stateProvider) {
       templateUrl: 'src/public/signup/signup.html',
       controller: 'SignupController',
       controllerAs: 'SignupCtrl',
-      // resolve: {
-      //   menuCategories: ['MenuService', function (MenuService) {
-      //     return MenuService.getCategories();
-      //   }]
-      // }
     });
 }
 })();
