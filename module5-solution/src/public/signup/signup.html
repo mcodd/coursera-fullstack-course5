@@ -57,8 +57,12 @@
       <button
         class="btn btn-primary"
         ng-disabled="regForm.$invalid"
-        ng-click="SignupCtrl.submit(SignupCtrl.user.favorite)">Submit</button>
+        ng-click="SignupCtrl.submit(SignupCtrl.user)">Submit</button>
 
     </form>
   </fieldset>
+  <span
+    ng-if="SignupCtrl.completed && SignupCtrl.validFavorite">
+    Your information has been saved
+  </span>
 </div>

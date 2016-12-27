@@ -3,15 +3,16 @@
 angular.module('public')
 .controller('SignupController', SignupController);
 
-SignupController.$inject = ['MenuService'];
-function SignupController(MenuService) {
+SignupController.$inject = ['MenuService', 'SignupService'];
+function SignupController(MenuService, SignupService) {
   var signup = this;
 
-  signup.submit = function (favorite) {
-    // TODO - figure out how to validate the menu number here?
+  signup.submit = function (userData) {
     signup.completed = true;
-    response = MenuService.checkMenuItem(favorite);
+    response = MenuService.checkMenuItem(userData.favorite);
     response.then(function(result) {
+      // TODO - save the data to a service
+      SignupService.setUser(userData);
       signup.validFavorite = true;
       console.log("set valid to true ", signup.validFavorite);
     }, function(result) {
