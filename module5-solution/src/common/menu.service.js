@@ -26,11 +26,11 @@ function MenuService($http, ApiPath) {
     });
   };
 
-  // returns true if the menu item shortName exists
-  service.checkMenuItem = function (shortName) {
+  // returns a menu item shortName, if it exists
+  service.getMenuItem = function (shortName) {
     return $http.get(ApiPath + '/menu_items/' + shortName + '.json').then(
       function (response) {
-        return true;
+        return response.data;
       });
   };
 

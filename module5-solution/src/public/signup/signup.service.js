@@ -10,7 +10,11 @@ function SignupService() {
 
   service.setUser = function (userData) {
     service.user = userData;
-    console.log(service.user);
+    // console.log(service.user);
+  };
+
+  service.getUser = function () {
+    return service.user;
   };
 
 }

@@ -9,15 +9,15 @@ function SignupController(MenuService, SignupService) {
 
   signup.submit = function (userData) {
     signup.completed = true;
-    response = MenuService.checkMenuItem(userData.favorite);
+    response = MenuService.getMenuItem(userData.favorite);
     response.then(function(result) {
-      // TODO - save the data to a service
+      userData.favoriteDetails = result;
       SignupService.setUser(userData);
       signup.validFavorite = true;
-      console.log("set valid to true ", signup.validFavorite);
+      // console.log("set valid to true ", signup.validFavorite);
     }, function(result) {
       signup.validFavorite = false;
-      console.log("set valid to  false ", signup.validFavorite);
+      // console.log("set valid to  false ", signup.validFavorite);
     });
   };
 }
